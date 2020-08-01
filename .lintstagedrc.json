@@ -1,0 +1,3 @@
+{
+  "*.js": ["yarn prettier-format", "git add"]
+}
