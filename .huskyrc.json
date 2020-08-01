@@ -1,0 +1,6 @@
+{
+    "hooks": {
+      "pre-commit": "yarn prettier-format",
+      "pre-push": "yarn test:ci"
+    }
+  }
