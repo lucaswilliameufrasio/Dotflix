@@ -4,7 +4,7 @@ import env from '../config/env'
 const apiUrl = env.apiUrl
 
 const api = axios.create({
-  baseUrl: apiUrl
+  baseURL: apiUrl
 })
 
 export default api
