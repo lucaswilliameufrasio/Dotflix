@@ -29,6 +29,7 @@
     "rules": {
         "prettier/prettier": 2, // Means error  
         "import/prefer-default-export": "off",
-        "no-param-reassign": "off"
+        "no-param-reassign": "off",
+        "react/prop-types": 0
     }
 }
