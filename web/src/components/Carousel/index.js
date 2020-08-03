@@ -8,10 +8,11 @@ import Slider from './components/Slider'
 import { SliderItem } from './components/Slider/styles'
 
 function Carousel({ ignoreFirstVideo, category }) {
-  const categoryTitle = category.titulo
+  const categoryTitle = category.title
   const categoryColor = category.cor
-  const categoryExtraLink = category.link_extra
+  const categoryDescription = category.description
   const videos = category.videos
+
   return (
     <VideoCardGroupContainer>
       {categoryTitle && (
@@ -19,10 +20,8 @@ function Carousel({ ignoreFirstVideo, category }) {
           <Title style={{ backgroundColor: categoryColor || 'red' }}>
             {categoryTitle}
           </Title>
-          {categoryExtraLink && (
-            <ExtraLink href={categoryExtraLink.url} target="_blank">
-              {categoryExtraLink.text}
-            </ExtraLink>
+          {categoryDescription && (
+            <Description>{categoryDescription}</Description>
           )}
         </>
       )}
@@ -33,9 +32,9 @@ function Carousel({ ignoreFirstVideo, category }) {
           }
 
           return (
-            <SliderItem key={video.titulo}>
+            <SliderItem key={video.title}>
               <VideoCard
-                videoTitle={video.titulo}
+                videoTitle={video.title}
                 videoURL={video.url}
                 categoryColor={categoryColor}
               />
