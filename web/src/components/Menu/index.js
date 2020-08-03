@@ -14,7 +14,7 @@ function Menu() {
         <img className="menu-logo" src={logo} alt="Dotflix logo" />
       </Link>
 
-      <Button as={Link} className="menu-buttonlink" to="/cadastro/video">
+      <Button as={Link} className="menu-buttonlink" to="/register/video">
         Cadastrar Vídeo
       </Button>
     </nav>
