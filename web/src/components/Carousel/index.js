@@ -9,7 +9,7 @@ import { SliderItem } from './components/Slider/styles'
 
 function Carousel({ ignoreFirstVideo, category }) {
   const categoryTitle = category.title
-  const categoryColor = category.cor
+  const categoryColor = category.color
   const categoryDescription = category.description
   const videos = category.videos
 
@@ -48,7 +48,7 @@ function Carousel({ ignoreFirstVideo, category }) {
 
 Carousel.propTypes = {
   ignoreFirstVideo: PropTypes.bool,
-  category: PropTypes.arrayOf(PropTypes.object)
+  category: PropTypes.object
 }
 
 export default Carousel
