@@ -15,7 +15,7 @@ function Menu() {
       </Link>
 
       <Button as={Link} className="menu-buttonlink" to="/cadastro/video">
-        Novo vídeo
+        Cadastrar Vídeo
       </Button>
     </nav>
   )
