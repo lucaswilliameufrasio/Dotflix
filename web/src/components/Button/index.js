@@ -24,13 +24,7 @@ export const Button = styled.button`
 
   @media (max-width: 800px) {
     & {
-      position: fixed;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: var(--primary);
-      border-radius: 0;
-      border: 0;
+      width: 100%;
       text-align: center;
     }
   }
