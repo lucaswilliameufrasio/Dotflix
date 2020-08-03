@@ -9,9 +9,10 @@ const Slider = ({ children }) => (
   <Container>
     <SlickSlider
       {...{
+        slidesToShow: 1,
         slidesToScroll: 1,
         dots: false,
-        infinite: true,
+        infinite: false,
         speed: 500,
         centerMode: false,
         variableWidth: true,
