@@ -1,10 +1,5 @@
 import React from 'react'
-import {
-  HashRouter as Router,
-  Switch,
-  Route,
-  Redirect
-} from 'react-router-dom'
+import { HashRouter as Router, Switch, Route, Redirect } from 'react-router-dom'
 
 import Home from './pages/Home'
 import CadastroVideo from './pages/CadastroVideo'
