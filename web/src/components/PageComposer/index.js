@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
+import { Main } from './styles'
 import Footer from '../Footer'
 import Menu from '../Menu'
 
