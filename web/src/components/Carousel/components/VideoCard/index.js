@@ -1,4 +1,6 @@
 import React from 'react'
+import PropTypes from 'prop-types'
+
 import { VideoCardContainer } from './styles'
 
 function getYouTubeId(youtubeURL) {
@@ -21,6 +23,12 @@ function VideoCard({ videoTitle, videoURL, categoryColor }) {
       title={videoTitle}
     />
   )
+}
+
+VideoCard.propTypes = {
+  videoTitle: PropTypes.string,
+  videoURL: PropTypes.string,
+  categoryColor: PropTypes.string
 }
 
 export default VideoCard
