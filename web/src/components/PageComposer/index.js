@@ -1,5 +1,5 @@
 import React from 'react'
-import styled from 'styled-components'
+import PropTypes from 'prop-types'
 
 import Footer from '../Footer'
 import Menu from '../Menu'
@@ -21,6 +21,18 @@ function PageComposer({ children }) {
       <Footer />
     </>
   )
+}
+
+PageComposer.defaultProps = {
+  paddingAll: 10
+}
+
+PageComposer.propTypes = {
+  children: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.node),
+    PropTypes.node
+  ]).isRequired,
+  paddingAll: PropTypes.number
 }
 
 export default PageComposer
