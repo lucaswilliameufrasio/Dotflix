@@ -18,6 +18,19 @@ export const Title = styled.h3`
   }
 `
 
+export const Description = styled.span`
+  margin-left: 16px;
+  text-decoration: none;
+
+  @media (max-width: 800px) {
+    display: block;
+    margin-bottom: 16px;
+    margin-left: 0;
+  }
+`
+
+// Not being used anymore. The use case to this will be an link
+// a new page called "Playlist" or "CategoryVideos"
 export const ExtraLink = styled.a`
   margin-left: 16px;
   text-decoration: none;

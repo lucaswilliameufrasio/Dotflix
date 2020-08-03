@@ -1,8 +1,11 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
+import { VideoCardGroupContainer, Title, Description } from './styles'
+
 import VideoCard from './components/VideoCard'
-import Slider, { SliderItem } from './components/Slider'
+import Slider from './components/Slider'
+import { SliderItem } from './components/Slider/styles'
 
 function Carousel({ ignoreFirstVideo, category }) {
   const categoryTitle = category.titulo
