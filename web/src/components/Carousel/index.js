@@ -1,5 +1,6 @@
 import React from 'react'
-import { VideoCardGroupContainer, Title, ExtraLink } from './styles'
+import PropTypes from 'prop-types'
+
 import VideoCard from './components/VideoCard'
 import Slider, { SliderItem } from './components/Slider'
 
@@ -41,6 +42,11 @@ function Carousel({ ignoreFirstVideo, category }) {
       </Slider>
     </VideoCardGroupContainer>
   )
+}
+
+Carousel.propTypes = {
+  ignoreFirstVideo: PropTypes.bool,
+  category: PropTypes.arrayOf(PropTypes.object)
 }
 
 export default Carousel
