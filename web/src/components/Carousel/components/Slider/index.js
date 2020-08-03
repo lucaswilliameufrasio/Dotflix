@@ -55,4 +55,11 @@ const Slider = ({ children }) => (
   </Container>
 )
 
+Slider.propTypes = {
+  children: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.node),
+    PropTypes.node
+  ]).isRequired
+}
+
 export default Slider
