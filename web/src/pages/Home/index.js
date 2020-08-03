@@ -1,26 +1,63 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 
 import BannerMain from '../../components/BannerMain'
 import Carousel from '../../components/Carousel'
-import Footer from '../../components/Footer'
-import Menu from '../../components/Menu'
+import Loading from '../../components/Loading'
+import NoVideosFound from './components/NoVideosFound'
+import PageComposer from '../../components/PageComposer'
 
-import dadosIniciais from '../../data/dados_iniciais.json'
+import categoryRepository from '../../repositories/categories-repository'
 
 function Home() {
+  const [categoriesWithVideos, setCategoriesWithVideos] = useState([])
+  const [loading, setLoading] = useState(true)
+
+  useEffect(() => {
+    async function fetchData() {
+      const data = await categoryRepository.getAllWithVideos()
+
+      setCategoriesWithVideos(data)
+      setLoading(false)
+    }
+
+    fetchData()
+  }, [])
+
+  if (loading) {
+    return <Loading />
+  }
+
+  if (
+    (categoriesWithVideos.length === 0 &&
+      categoriesWithVideos[0].videos.length === 0) ||
+    (categoriesWithVideos.length > 0 &&
+      categoriesWithVideos[0].videos.length === 0)
+  ) {
+    return <NoVideosFound />
+  }
+
   return (
-    <div style={{ backgroundColor: '#141414' }}>
-      <Menu />
+    <PageComposer paddingAll={0}>
       <BannerMain
-        videoTitle={dadosIniciais.categorias[0].videos[0].titulo}
-        url={dadosIniciais.categorias[0].videos[0].url}
+        videoTitle={categoriesWithVideos[0].videos[0].title}
+        url={categoriesWithVideos[0].videos[0].url}
         videoDescription={'Vídeo preferido'}
       />
-      {dadosIniciais.categorias.map((tema) => (
-        <Carousel category={tema} ignoreFirstVideo={tema.videos.length > 5} />
-      ))}
-      <Footer />
-    </div>
+
+      {categoriesWithVideos.map((category) => {
+        if (category.videos.length > 0) {
+          return (
+            <Carousel
+              key={`carouselId${category.id}`}
+              category={category}
+              ignoreFirstVideo={category.videos.length > 5}
+            />
+          )
+        }
+
+        return <> </>
+      })}
+    </PageComposer>
   )
 }
 
