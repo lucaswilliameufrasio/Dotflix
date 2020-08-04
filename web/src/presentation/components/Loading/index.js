@@ -3,7 +3,7 @@ import { AiOutlineLoading3Quarters } from 'react-icons/ai'
 
 import { Container, InfiniteRotation } from './styles'
 
-import logo from '../../assets/logo.png'
+import logo from '../../../main/assets/logo.png'
 
 function Loading() {
   return (

@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 
 import Button from './components/Button'
 
-import logo from '../../assets/logo.png'
+import logo from '../../../main/assets/logo.png'
 
 import './styles.css'
 
