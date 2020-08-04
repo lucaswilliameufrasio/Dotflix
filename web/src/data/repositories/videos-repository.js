@@ -1,7 +1,7 @@
-import api from '../services/api'
+import httpClient from '../../infra/http/axios-http-client/axios-http-client'
 
 async function getAll() {
-  const response = await api.get('videos')
+  const response = await httpClient.get('videos')
   if (response.status === 200) {
     const data = response.data
 
@@ -13,12 +13,14 @@ async function getAll() {
 
 async function create(data) {
   try {
-    const categoryId = await api.get(`categories?title=${data.categoryId}`)
+    const categoryId = await httpClient.get(
+      `categories?title=${data.categoryId}`
+    )
 
     if (categoryId.status === 200) {
       data.categoryId = categoryId.data[0].id
 
-      await api.post('videos', data)
+      await httpClient.post('videos', data)
 
       return 'Cadastro realizado com sucesso!'
     }

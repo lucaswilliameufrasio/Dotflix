@@ -1,7 +1,7 @@
-import api from '../services/api'
+import httpClient from '../../infra/http/axios-http-client/axios-http-client'
 
 async function getAll() {
-  const response = await api.get('categories')
+  const response = await httpClient.get('categories')
 
   if (response.status === 200) {
     const data = response.data
@@ -13,7 +13,7 @@ async function getAll() {
 }
 
 async function getAllWithVideos() {
-  const response = await api.get('categories?_embed=videos')
+  const response = await httpClient.get('categories?_embed=videos')
 
   if (response.status === 200) {
     const data = response.data
