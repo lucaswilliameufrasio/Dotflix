@@ -6,10 +6,29 @@ import Loading from '../../components/Loading'
 import NoVideosFound from './components/NoVideosFound'
 import PageComposer from '../../components/PageComposer'
 
-import categoryRepository from '../../repositories/categories-repository'
+import categoryRepository from '../../../data/repositories/categories-repository'
+
+interface IVideos {
+  id: number
+  categoryId: number
+  title: string
+  url: string
+}
+
+interface ICategories {
+  id: number
+  title: string
+  color: string
+}
+
+interface ICategoriesWithVideos extends ICategories {
+  videos: Array<IVideos>
+}
 
 function Home() {
-  const [categoriesWithVideos, setCategoriesWithVideos] = useState([])
+  const [categoriesWithVideos, setCategoriesWithVideos] = useState<
+    Array<ICategoriesWithVideos>
+  >([])
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
