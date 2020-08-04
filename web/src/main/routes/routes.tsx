@@ -1,9 +1,9 @@
 import React from 'react'
 import { HashRouter as Router, Switch, Route, Redirect } from 'react-router-dom'
 
-import Home from './pages/Home'
-import RegisterVideo from './pages/RegisterVideo'
-import RegisterCategory from './pages/RegisterCategory'
+import Home from '../../presentation/pages/Home'
+import RegisterVideo from '../../presentation/pages/RegisterVideo'
+import RegisterCategory from '../../presentation/pages/RegisterCategory'
 
 function Routes() {
   return (
