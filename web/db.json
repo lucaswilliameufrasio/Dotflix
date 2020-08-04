@@ -25,25 +25,6 @@
       "url": "https://www.youtube.com/watch?v=ER_GUboHFsE"
     },
     {
-      "id": 3
-    },
-    {
-      "id": 4
-    },
-    {
-      "id": 5
-    },
-    {
-      "title": "Como fazer validações de formulário com React? #FailFastValidations | Formik Engenharia Reversa #02",
-      "url": "https://www.youtube.com/watch?v=-nYNd6EuZHU&feature=youtu.be",
-      "id": 6
-    },
-    {
-      "title": "Como fazer validações de formulário com React? #FailFastValidations | Formik Engenharia Reversa #02",
-      "url": "https://www.youtube.com/watch?v=-nYNd6EuZHU&feature=youtu.be",
-      "id": 7
-    },
-    {
       "categoryId": 2,
       "title": "Como fazer validações de formulário com React? #FailFastValidations | Formik Engenharia Reversa #02",
       "url": "https://www.youtube.com/watch?v=-nYNd6EuZHU&feature=youtu.be",
@@ -60,6 +41,12 @@
       "title": "Como fazer validações de formulário com React? #FailFastValidations | Formik Engenharia Reversa #02",
       "url": "https://www.youtube.com/watch?v=-nYNd6EuZHU&feature=youtu.be",
       "id": 10
+    },
+    {
+      "categoryId": 2,
+      "title": "Arquitetura Hexagonal: O que você precisa saber",
+      "url": "https://www.youtube.com/watch?v=or5zAOASPjU",
+      "id": 11
     }
   ]
 }
