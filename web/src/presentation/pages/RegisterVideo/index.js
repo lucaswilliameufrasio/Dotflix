@@ -7,10 +7,18 @@ import FormButton from '../../components/FormButton'
 import Button from '../../components/Button'
 
 import useForm from '../../hooks/useForm'
-import categoriesRepository from '../../repositories/categories-repository'
+import categoriesRepository from '../../../data/repositories/categories-repository'
+import videosRepository from '../../../data/repositories/videos-repository'
 
-function RegisterCategory() {
+function RegisterVideo() {
   const [categories, setCategories] = useState([])
+  const categoriesForDataField = categories.map(({ title }) => {
+    const value = title
+
+    return {
+      value
+    }
+  })
 
   useEffect(() => {
     async function fetchCategories() {
@@ -23,9 +31,9 @@ function RegisterCategory() {
   }, [])
 
   const initialValues = {
-    name: '',
-    description: '',
-    color: '#FFFFFF'
+    categoryId: '',
+    title: '',
+    url: ''
   }
 
   const { data, handleChange, clearForm } = useForm(initialValues)
@@ -33,57 +41,52 @@ function RegisterCategory() {
   async function handleSubmit(event) {
     event.preventDefault()
 
-    setCategories((prevState) => [...prevState, data])
+    try {
+      await videosRepository.create(data)
 
-    clearForm(initialValues)
+      console.log(data)
+
+      clearForm(initialValues)
+    } catch (error) {
+      console.log(error)
+    }
   }
 
   return (
     <PageComposer>
-      <h1>Cadastro de Categoria:</h1>
+      <h1>Cadastro de Vídeo:</h1>
 
       <form onSubmit={handleSubmit}>
         <FormField
-          label="Nome da Categoria"
-          name="name"
-          value={data.name}
+          label="Selecione uma Categoria"
+          name="categoryId"
+          value={data.categoryId}
+          onChange={handleChange}
+          suggestions={categoriesForDataField}
+        />
+
+        <FormField
+          label="Título do Vídeo"
+          name="title"
+          value={data.title}
           onChange={handleChange}
         />
 
         <FormField
-          label="Descrição"
-          type="textarea"
-          name="description"
-          value={data.description}
-          onChange={handleChange}
-        />
-
-        <FormField
-          label="Cor"
-          type="color"
-          name="color"
-          value={data.color}
+          label="Link do Vídeo"
+          name="url"
+          value={data.url}
           onChange={handleChange}
         />
 
         <FormButton type="submit">Cadastrar</FormButton>
       </form>
 
-      <ul>
-        {categories.length > 0 &&
-          categories.map((item, index) => (
-            <li key={`${item.name}${index}`}>
-              Nome: {item.name}, Descrição: {item.description}, Cor:{' '}
-              {item.color}
-            </li>
-          ))}
-      </ul>
-
-      <Button as={Link} to="/">
-        Ir para home
+      <Button as={Link} to="/register/category">
+        Cadastrar de Categoria
       </Button>
     </PageComposer>
   )
 }
 
-export default RegisterCategory
+export default RegisterVideo
